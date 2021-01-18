@@ -62,6 +62,7 @@ func githubHandler(config *oauth2.Config, isEnterprise bool, success, failure ht
 		failure = gologin.DefaultFailureHandler
 	}
 	fn := func(w http.ResponseWriter, req *http.Request) {
+		fmt.Printf(req.Host)
 		ctx := req.Context()
 		token, err := oauth2Login.TokenFromContext(ctx)
 		if err != nil {
